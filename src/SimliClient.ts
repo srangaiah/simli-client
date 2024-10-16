@@ -49,7 +49,32 @@ export class SimliClient extends EventEmitter {
 
   private createPeerConnection() {
     const config: RTCConfiguration = {
-      iceServers: [{ urls: ["stun:stun.l.google.com:19302"] }],
+     
+      iceServers: [
+          {
+            urls: "stun:stun.relay.metered.ca:80",
+          },
+          {
+            urls: "turn:global.relay.metered.ca:80",
+            username: "e1148e4ab9a5bc9c0dd4478e",
+            credential: "dw6OaWaudlVy/G25",
+          },
+          {
+            urls: "turn:global.relay.metered.ca:80?transport=tcp",
+            username: "e1148e4ab9a5bc9c0dd4478e",
+            credential: "dw6OaWaudlVy/G25",
+          },
+          {
+            urls: "turn:global.relay.metered.ca:443",
+            username: "e1148e4ab9a5bc9c0dd4478e",
+            credential: "dw6OaWaudlVy/G25",
+          },
+          {
+            urls: "turns:global.relay.metered.ca:443?transport=tcp",
+            username: "e1148e4ab9a5bc9c0dd4478e",
+            credential: "dw6OaWaudlVy/G25",
+          },
+      ],
     };
     console.log("Server running: ", config.iceServers);
 
